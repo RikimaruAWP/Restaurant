@@ -32,6 +32,18 @@ export function CommentForm() {
         fetchRestaurant()
     }, [id]);
 
+
+    async function deleteComment(id){
+        console.log(id);
+        try{
+            await api.delete(`/comments/${id}/`)
+            alert('Se elimino artista');
+            fetchRestaurant()
+        }catch(error){
+            console.log(error.message);
+        }
+    }
+
     const handleSubmit = async (evento) => {
         evento.preventDefault();
         console.log('Se previno la accion por defecto');
@@ -87,6 +99,6 @@ export function CommentForm() {
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-    )
+        )
 }
 
