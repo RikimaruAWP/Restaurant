@@ -20,6 +20,13 @@ export function RestaurantDetail() {
         fetchRestaurant();
     }, [id]);
 
+    const handleCommentAdded = (newComment) => {
+        setRestaurant((prevRestaurant) => ({
+            ...prevRestaurant,
+            comments: [...prevRestaurant.comments, newComment],
+        }));
+    };
+
     if (!restaurant) {
         return <div className="container mt-4">Loading...</div>;
     }
@@ -45,8 +52,7 @@ export function RestaurantDetail() {
                 ))}
             </ul>
 
-            <CommentForm />
-            
+            <CommentForm restaurantId={restaurant.id} onCommentAdded={handleCommentAdded} />
             <Link to={`/edit-restaurants/${restaurant.id}/`} className="btn btn-primary mt-4">
                 Edit Restaurant
             </Link>
