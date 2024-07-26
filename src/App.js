@@ -3,7 +3,9 @@ import { RestaurantList } from './components/RestaurantList';
 import { RestaurantCreate } from './components/RestaurantCreate';
 import { RestaurantDetail } from './components/RestaurantDetail';
 import { CommentForm } from './components/CommentForm';
+import { RestaurantEdit } from './components/RestaurantEdit';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
         <Route path='/create-restaurants' element={<RestaurantCreate />} />
         <Route path='/detail-restaurants/:id' element={<RestaurantDetail/>}></Route>
         <Route path='/form-comment/' element={<CommentForm/>}></Route>
+        <Route path='/edit-restaurants/:id' element={<RestaurantEdit/>}></Route>
       </Routes>
 
   </Router>

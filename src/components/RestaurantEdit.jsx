@@ -39,7 +39,6 @@ export function RestaurantEdit(){
                 <label className="form-label">{restaurante.name}</label>
                 <input type="text" className="form-control" required />
             </div>
-
         </form>
     </div>
     )

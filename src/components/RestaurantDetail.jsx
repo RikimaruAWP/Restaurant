@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../service/api";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CommentForm } from "./CommentForm";
 
 export function RestaurantDetail() {
@@ -45,6 +45,7 @@ export function RestaurantDetail() {
                 </ul>
 
                 <CommentForm/>
+                <Link className="btn btn-primary mt-4" ></Link>
                 
                 <button className="btn btn-primary mt-4">Edit Restaurant</button>
         </div>
