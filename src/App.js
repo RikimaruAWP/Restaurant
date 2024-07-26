@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RestaurantList } from './components/RestaurantList';
 import { RestaurantCreate } from './components/RestaurantCreate';
+import { RestaurantDetail } from './components/RestaurantDetail';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path='/list-restaurants' element={<RestaurantList />} />
         <Route path='/create-restaurants' element={<RestaurantCreate />} />
+        <Route path='/detail-restaurants/:id' element={<RestaurantDetail/>}></Route>
       </Routes>
 
   </Router>

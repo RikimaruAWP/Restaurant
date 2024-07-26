@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../service/api";
+import { Link } from "react-router-dom";
 
 export function RestaurantList(){
     const [listadoRestaurant, setListadoRestaurant] = useState([]);
@@ -33,7 +34,7 @@ export function RestaurantList(){
         <h1 className="mb-4">Restaurants</h1>
         <ul className="list-group">{listadoRestaurant.map((restaurante)=>
             <li key ={restaurante.id} className="list-group-item d-flex justify-content-between align-items-center">
-                <a href="#">{restaurante.name}</a>
+                <Link to={`/detail-restaurants/${restaurante.id}/`}>{restaurante.name}</Link>
                 <button className="btn btn-danger btn-sm" onClick={()=> deleteRestaurant(restaurante.id)}>
                     Delete
                 </button>
