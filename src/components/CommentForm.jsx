@@ -11,6 +11,7 @@ export function CommentForm(){
 
     const handleSumbit = async (evento) =>{
         evento.preventDefault()
+        const comment = new FormData();
         comment.appende('name',name)
         comment.appende('description',description)
         comment.appende('rating',rating)
@@ -31,6 +32,9 @@ export function CommentForm(){
             <label className="form-label">Rating:</label>
             <input type="number" min="1" max="5" className="form-control" required />
         </div>
+
+        <button type="submit" className="btn btn-primary">Submit</button>
+        
     </form>
     )
 }

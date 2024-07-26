@@ -28,26 +28,28 @@ export function RestaurantDetail() {
         <div className="container mt-4 border p-2">
             <h2>{restaurant.name}</h2>
             <p>{restaurant.address}</p>
-                <img
-                    src={restaurant.image}
-                    alt=''
-                    className="img-fluid"
-                />
-                <p>{restaurant.rating}</p>
-                    <h3>Comments:</h3>
-                <ul className="list-group">{restaurant.comments.map(comment => (
+            <img
+                src={restaurant.image}
+                alt={restaurant.name}
+                className="img-fluid"
+            />
+            <p>{restaurant.rating}</p>
+            <h3>Comments:</h3>
+            <ul className="list-group">
+                {restaurant.comments.map(comment => (
                     <li key={comment.id} className="list-group-item d-flex justify-content-between align-items-center">
                         <span>
-                            <strong>{comment.name} : </strong>{comment.description}
+                            <strong>{comment.name}:</strong> {comment.description}
                         </span>
+                    </li>
+                ))}
+            </ul>
 
-                    </li>))}
-                </ul>
-
-                <CommentForm/>
-                <Link className="btn btn-primary mt-4" ></Link>
-                
-                <button className="btn btn-primary mt-4">Edit Restaurant</button>
+            <CommentForm />
+            
+            <Link to={`/edit-restaurants/${restaurant.id}/`} className="btn btn-primary mt-4">
+                Edit Restaurant
+            </Link>
         </div>
     );
 }
