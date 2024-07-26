@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../service/api";
 import { useParams } from "react-router-dom";
+import { CommentForm } from "./CommentForm";
 
 export function RestaurantDetail() {
     const { id } = useParams();
@@ -32,7 +33,20 @@ export function RestaurantDetail() {
                     alt=''
                     className="img-fluid"
                 />
-            <h3 className="mt-4">Comments</h3>
+                <p>{restaurant.rating}</p>
+                    <h3>Comments:</h3>
+                <ul className="list-group">{restaurant.comments.map(comment => (
+                    <li key={comment.id} className="list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                            <strong>{comment.name} : </strong>{comment.description}
+                        </span>
+
+                    </li>))}
+                </ul>
+
+                <CommentForm/>
+                
+                <button className="btn btn-primary mt-4">Edit Restaurant</button>
         </div>
     );
 }
